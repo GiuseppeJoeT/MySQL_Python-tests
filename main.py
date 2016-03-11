@@ -13,13 +13,11 @@ my_select = employees02_db.select('employees')
 
 print my_select
 
+kwargs = {'where': "gender=M",
+          'order_by': 'emp_no'}
 
-kwargs = { 'where': "employees.gender=M",
-           'order_by': 'emp_no'}
-
-results = my_database.select('people',
-                             columns=["concat('first_name', '' , 'last_name') as full_name"],
-                             named_tuples=True, **kwargs)
+results = employees02_db.select('employees', columns=["concat('first_name', '' , 'last_name') as full_name"],
+                                named_tuples=True, **kwargs)
 
 print kwargs
 
